@@ -12,10 +12,16 @@ public class Robot {
 	}
 	
 	public void move(char action, int repeat) {
+		
+		// move the robot as required
 		if(action == 'F' || action == 'B') {
+			
+			//To convert to a backward move just negate the move
 			if(action == 'B') {
 				repeat = -repeat;
 			}
+			
+			// move with respect to the direction the robot is facing
 			switch(this.facing) {
 			case NORTH:
 				y += repeat;
@@ -30,14 +36,19 @@ public class Robot {
 				x -= repeat;	
 			}
 		}
+		// change the direction of the robot as many times as required
 		else if(action == 'L' || action == 'R') {
 			for(int i=0; i<repeat; i++) {
 				changeDirection(action);
 			}
 		}
-		System.out.println("current coordinates: " + this.x + "," + this.y + " facing " + this.facing);
+		
+		// used to display the effects of each move
+		System.out.println("new coordinates: " + this.x + "," + this.y + " facing " + this.facing);
 	}
 	
+	
+	// Function used to change the direction of the robot as appropriate
 	private void changeDirection(char action) {
 		if(action == 'L') {
 			switch(this.facing) {
@@ -71,5 +82,13 @@ public class Robot {
 				break;
 			}
 		}
+	}
+	
+	public int getX() {
+		return this.x;
+	}
+	
+	public int getY() {
+		return this.y;
 	}
 }

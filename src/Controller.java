@@ -1,14 +1,15 @@
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.lang.Math;
 
 public class Controller {
 	
 	public static void main(String[] args) throws FileNotFoundException {
         Scanner in = new Scanner(System.in);
         
-        Robot robot = new Robot();
-        
         while(true){
+
+            Robot robot = new Robot();
         	System.out.print("Input Command String: ");
             
             String commands = in.nextLine();
@@ -20,7 +21,7 @@ public class Controller {
             	
             	// if move is in incorrect format, printout error
             	if (!move.toUpperCase().matches("^[FRLB][0-9]+")) {
-        			System.out.println("Wrong Command Detected: " + move);
+        			System.out.println("Wrong Command Detected: " + moves[i]);
         			System.out.println("Please input correct commands!");
         		}
             	
@@ -30,9 +31,13 @@ public class Controller {
             		
             		robot.move(action, repeat);
             	}
-            	
-            	
             }
+            
+            int minDist = Math.abs(robot.getX()) + Math.abs(robot.getY());
+            
+            System.out.println("Minimum Distance from starting Point = " + minDist + " Blocks");
+            
+            
         }
         
 	}
