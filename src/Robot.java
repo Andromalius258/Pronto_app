@@ -83,7 +83,8 @@ public class Robot {
 			}
 		}
 	}
-	
+
+	// Getter functions to access robot's location
 	public int getX() {
 		return this.x;
 	}
