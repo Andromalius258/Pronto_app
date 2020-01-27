@@ -43,8 +43,10 @@ public class Robot {
 			}
 		}
 		
+		/*
 		// used to display the effects of each move
 		System.out.println("new coordinates: " + this.x + "," + this.y + " facing " + this.facing);
+		*/
 	}
 	
 	
